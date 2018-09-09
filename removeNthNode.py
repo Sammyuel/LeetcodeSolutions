@@ -8,19 +8,19 @@ class Solution(object):
     def removeNthFromEnd(self, head, n):
         if head == None:
             return 
-        nodes = []
+        container = []
         previous = head
         ptr = head
         counter = 1
         while ptr:
-            nodes.append(ptr)
+            container.append(ptr)
             ptr = ptr.next
-        deleteNode = len(nodes)-1 - (n-1)
+        deleteNode = len(container)-1 - (n-1)
         if deleteNode == 0:
             return head.next 
-        beforeNode = nodes[deleteNode-1]
+        beforeNode = container[deleteNode-1]
         if n > 1:
-            beforeNode.next = nodes[deleteNode + 1]
+            beforeNode.next = container[deleteNode + 1]
         else:
             beforeNode.next = None
         return head
