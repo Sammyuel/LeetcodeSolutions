@@ -1,22 +1,28 @@
 class Solution(object):
     def deleteNode(self, root, key):
-        if not root: # if root doesn't exist, just return it
-            return root
-        if root.val > key: # if key value is less than root value, find the node in the left subtree
-            root.left = self.deleteNode(root.left, key)
-        elif root.val < key: # if key value is greater than root value, find the node in right subtree
-            root.right= self.deleteNode(root.right, key)
-        else: #if we found the node (root.value == key), start to delete it
-            if not root.right: # if it doesn't have right children, we delete the node then new root would be root.left
+        """
+        :type root: TreeNode
+        :type key: int
+        :rtype: TreeNode
+        """
+        if not root: return None
+        
+        if root.val == key:
+            if root.left:
+                # Find the right most leaf of the left sub-tree
+                left_right_most = root.left
+                while left_right_most.right:
+                    left_right_most = left_right_most.right
+                # Attach right child to the right of that leaf
+                left_right_most.right = root.right
+                # Return left child instead of root, a.k.a delete root
                 return root.left
-            if not root.left: # if it has no left children, we delete the node then new root would be root.right
+            else:
                 return root.right
-                   # if the node have both left and right children,  we replace its value with the minmimum value in the right subtree and then delete that minimum node in the right subtree
-            temp = root.right
-            mini = temp.val
-            while temp.left:
-                temp = temp.left
-                mini = temp.val
-            root.val = mini # replace value
-            root.right = self.deleteNode(root.right,root.val) # delete the minimum node in right subtree
+        # If left or right child got deleted, the returned root is the child of the deleted node.
+        elif root.val > key:
+            root.left = self.deleteNode(root.left, key)
+        else:
+            root.right = self.deleteNode(root.right, key)
+            
         return root
