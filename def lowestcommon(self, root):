@@ -1,0 +1,4 @@
+def lowestcommon(self, root):
+	res = root
+	def traverse(node):
+		if node.val == first or node.val == second

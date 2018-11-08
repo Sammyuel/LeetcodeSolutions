@@ -1,0 +1,188 @@
+	
+Binary Tree Zigzag Level Order Traversal -> Use a stack
+Search in Rotated Sorted Array, binary search algorithm
+Sort Colors -> beginning and end pointer
+Roman to Integer -> traverse backwards, extra pointer
+maxAreaOfIsland -> bfs
+Clone Graph -> {node: cloned_root}. Copy via hash simple bfs
+    def cloneGraph(self, node):
+        if not node:
+            return node
+        cloned_root = UndirectedGraphNode(node.label)
+        queue = [node]
+        cloned = {node: cloned_root}
+        while queue:
+            current = queue.pop()
+            for neighbor in current.neighbors:
+                if neighbor not in cloned:
+                    queue.append(neighbor)
+                    clone_neighbor = UndirectedGraphNode(neighbor.label)
+                    cloned[neighbor] = clone_neighbor
+                cloned[current].neighbors.append(cloned[neighbor])
+        return cloned[node]
+Remove K Digits ->  while k and stack and stack[-1] > dig:
+removeNthFromEnd -> either recursively or via k nodes apart with slow fast pointer
+Reverse Integer -> multiply by 10 and add remainder
+copyRandomList -> 
+twosum - hash
+Integer to Roman -> store all possible values. Hint largest to smallest. Fit as many largest as possible
+Multiply Strings -> Understand how multiplcation works! 2 nested for loops
+                res[i + j] += int1 * int2
+                res[i + j + 1] += res[i + j] // 10
+                res[i + j] %= 10
+addstrings
+Kth Smallest Element in a BST -> for iterative. If root - traverse left, if not root - pop stack (while root or stack)
+
+Recursive:
+    def kthSmallest(self, root, k):
+        self.k = k
+        self.res = None
+        self.helper(root)
+        return self.res
+
+    def helper(self, node):
+        if not node:
+            return 0 
+        self.helper(node.left)
+        self.k -= 1
+        if self.k == 0:
+            self.res = node.val
+            return
+        self.helper(node.right)
+
+iterative: 
+def kthSmallest(root, k):
+    stack = []
+    while root or stack:
+        while root:
+            stack.append(root)
+            root = root.left
+        root = stack.pop()
+        k -= 1
+        if k == 0:
+            return root.val
+        root = root.right
+diameter of tree:
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        self.ans = 0
+        
+        def depth(p):
+            if not p: return 0
+            left, right = depth(p.left), depth(p.right)
+            self.ans = max(self.ans, left+right)
+            return 1 + max(left, right)
+            
+        depth(root)
+        return self.ans
+Diameter of Binary Tree
+Longest Palindromic Substring -> for each element check even and odd 
+Reverse Words in a String III
+Spiral Matrix - while left <= right and top <= bottom:
+ - top < bottom
+ -left < right:
+ - for left and up 
+Letter Combinations of a Phone Number -> bfs or dfs?
+	- append when num index equals length
+	
+Maximum Product of Three Numbers -> heapq.nlargest(3, heap) heapq.nsmallest(3, heap)
+Exclusive Time of Functions
+            if state == "start":
+                if starts:
+                    result[starts[-1]] += time - previous_time
+                starts.append(func)
+                
+                previous_time = time
+            else:
+                previous = starts.pop(-1)
+                result[func] += time + 1 - previous_time 
+                previous_time = time + 1
+String Compression -> read and write pointers
+Course Schedule -> DFS
+    def canFinish(self, numCourses, prerequisites):
+        graph = [[] for _ in xrange(numCourses)]
+        visit = [0 for _ in xrange(numCourses)]
+        for x, y in prerequisites:
+            graph[x].append(y)
+        def dfs(i):
+            if visit[i] == -1:
+                return False
+            if visit[i] == 1:
+                return True
+            visit[i] = -1
+            for j in graph[i]:
+                if not dfs(j):
+                    return False
+            visit[i] = 1
+            return True
+        for i in xrange(numCourses):
+            if not dfs(i):
+                return False
+        return True
+
+Excel Sheet Column Title -> Look over again
+findCelebrity -> 
+    def findCelebrity(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        candidate = 0
+        # Find the candidate.
+        for i in xrange(1, n):
+            if knows(candidate, i):  # noqa
+                candidate = i        # All candidates < i are not celebrity candidates.
+        # Verify the candidate.
+            for i in xrange(n):
+                candidate_knows_i = knows(candidate, i) # noqa
+                i_knows_candidate = knows(i, candidate) # noqa
+                if i != candidate and (candidate_knows_i or
+                                       not i_knows_candidate):
+                    return -1
+        return candidate
+
+Top k frequent words:
+    def topKFrequent(self, words, k):
+        """
+        :type words: List[str]
+        :type k: int
+        :rtype: List[str]
+        """
+        counts = collections.Counter(words)   
+        
+        freqs = []
+        heapq.heapify(freqs)
+        for word, count in counts.items():
+            heapq.heappush(freqs, (Element(count, word))) 
+            if len(freqs) > k:
+                heapq.heappop(freqs)
+        
+        res = []
+        for _ in range(k):
+            ele = heapq.heappop(freqs).word
+            res.append(ele)
+        return res[::-1]
+Meeting Rooms II
+Thoughts - Why sort them? 
+Swap Nodes in Pairs -> Store previous pair new tail
+	-> Watch for tail
+	-> connect backwards with previous pair!
+	-> Check if previous pair
+Island perimeter - simple bfs
+q = []
+seen = {}
+count = 0 
+for y in range(len(graph)):
+	for x in range(len(graph[i])):
+		if graph[y][x] == 1:
+			seen[(y,x)] = True
+			q.append((y,x))
+			while q:
+				a,b = q.pop(0)
+				for c,d in [(a, b +1), (a, b -1), (a+1, b), (a-1, b)]:
+					if graph[c][d] == 1 and (c,d) not in seen:
+
+

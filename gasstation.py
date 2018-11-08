@@ -15,3 +15,7 @@ class Solution:
             return start
 
         return -1
+
+
+How can we assume that incrementing start when current_sum < 0 ensures correct start?
+Use current_sum and total_sum

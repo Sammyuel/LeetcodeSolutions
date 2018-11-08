@@ -16,7 +16,7 @@ class Solution(object):
         """
         if root == None:
             return None
-
+            
         if root == p or root == q:
             return root
 

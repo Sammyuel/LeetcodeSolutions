@@ -13,8 +13,6 @@ class Solution(object):
             end_times.append(interval.end)
         start_times.sort()
         end_times.sort()
-        print(start_times)
-        print(end_times)
         for i in range(1, len(start_times)):
             if start_times[i] < end_times[i-1]:
                 return False

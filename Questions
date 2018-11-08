@@ -1,0 +1,68 @@
+Copy list with random pointer  
+Is BST or Not
+- Given input matrix , start and end index find sum between them
+- String reversal followed by sentence reversal
+- Find celebrity - Only one for loop!
+- Find all subsets of given set.  -> Can find subsets using DFS just like the phone number -> letter question
+Walk me through your debugging process when you encounter a bug.  
+Find the second smallest element of the BST  -> Do this!
+Given an array like [0,1,2,3,4,5] and an index like 3, make the array [3,4,5,0,1,2] in place  
+Find the length of the longest palindrome in a string  
+Connect two linked lists to make one sorted linked list.  
+Rotate a matrix by 90 degrees.  
+Detect a loop in linked list.  
+Connect all leaves of binary tree by using right pointer  -> 
+given a string & all possible character mappings, print all unique strings formed by replacing characters in string by char from its mapping.
+string: abc
+mapping: a ->(t,r), b ->(u,i)
+so print tbc, rbc, auc, ....  
+1. A simple backtracking problem, parse a given string for a specific type of substrings.  
+Balance a BST 
+Given a connected graph, create a function that returns true if the graph is bipartite.  
+BST insert delete balance etc.  
+Write a program that will find all the prime numbers in array  
+Navigating a binary search tree using inorder traversal for a specified value.  
+describe one of the challenges you had in your projects and how you tackle it.  
+given a number, permute the digits to form the next larger permutation.  
+1. Find longest palindrome sub-string in a given string .
+2. Find k-largest number from a huge amount of data which can not be fit in memory .
+Simple odd-even sorting algorithm to soft the list of numbers into odds first and then evens in no particular order within.  
+Please delete a given node from a sorted singly-linked list.  
+1. two sum 2. LCA 3. array partition 4. parentheses pairing 5. longest branch in a tree  
+Find the closest common ancestors to 2 nodes in a n-ary tree.  
+Transfer a binary tree to a file, and be able to build the tree back from that file.  
+Shuffle a deck of cards (given as an array) ensure a random shuffle each time  
+Determine if one word is an anagram if another  
+Implement to insert (put) function for a hashmap  
+Implement a way to search for a key/value pair in a file in O(logn). (The file is populated based off of a bst)  
+Construct a binary tree with the preorder traversal string and the inorder traversal string.  
+Given an array of persons, find the celebrity (a person known by everyone, and who knows nobody). 
+BFS, DFS, Find if a binary tree is symmetric.  
+Determine if a string is an permutation of another string.  
+Question about utilizing a max heap.  
+Combine an ascending sorted list and a descending order list.  
+For a given number, write an algorithm that can find its square root.  
+Given an NxM matrix, iterate through it in a spiral direction.  
+Given 2d matrix and a string. Write a function to check if string is contained in the 2d matrix  
+Create a function that does a binary search through a sorted array of integers.  
+Find a palindrome in this string  
+Similar to all possible combinations of a string  
+Return the factorial of a number. Then implement BigInteger for large n, and implement add and subtract for BigInteger.  
+Battleships in a Board
+One Edit Distance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

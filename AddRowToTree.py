@@ -12,6 +12,7 @@ class Solution(object):
         newLeft = TreeNode(v)
         newRight = TreeNode(v)
         if d == 1:
+            
             newLeft.left = root
             return newLeft
         if d == 2:

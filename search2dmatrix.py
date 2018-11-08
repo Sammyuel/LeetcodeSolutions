@@ -16,3 +16,5 @@ class Solution(object):
                         return True
                 return False
         return False
+
+finding a pattern for 2d matrix 

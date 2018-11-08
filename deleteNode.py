@@ -26,3 +26,5 @@ class Solution(object):
             root.right = self.deleteNode(root.right, key)
             
         return root
+
+Another way of writing this would be to use previous variable

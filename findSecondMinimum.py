@@ -12,3 +12,6 @@ class Solution(object):
             traverse(node.right)
         traverse(root)
         return -1 if not self.res else self.res
+
+
+Alternatives...?
